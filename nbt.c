@@ -23,7 +23,7 @@ nbt_decode(PG_FUNCTION_ARGS)
 		if (tagType==0){
 			break;
 		}
-		if (nbt[pos+1]!=0){
+		if (nbt[pos+1]!=0 || nbt[pos+2]<0){
 			PG_RETURN_TEXT_P(cstring_to_text("Malformed 2"));
 		}
 		int namelen = nbt[pos+2];
